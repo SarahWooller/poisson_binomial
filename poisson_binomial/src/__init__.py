@@ -1,14 +1,14 @@
 import numpy as np
 from math import atan2,sqrt,log,cos,sin,exp,pi
-from scipy import fft
+from scipy.fft import fft
 
 class PoissonBinomial:
-    
+
     def __init__(self,prob_array):
         self.p = np.array(prob_array)
         self.pmf = self.get_poisson_binomial()
         self.cdf = np.cumsum(self.pmf)
-        
+
     def x_or_less(self,x):
         return self.cdf[x]
     def x_or_more(self,x):
@@ -16,9 +16,9 @@ class PoissonBinomial:
 
     def get_poisson_binomial(self):
 
-        """This version of the poisson_binomial is implemented 
-        from the fast fourier transform method described in 
-        'On computing the distribution function for the 
+        """This version of the poisson_binomial is implemented
+        from the fast fourier transform method described in
+        'On computing the distribution function for the
         Poisson binomial distribution'by Yili Hong 2013."""
 
         real = np.vectorize(lambda x: x.real)
@@ -43,7 +43,7 @@ class PoissonBinomial:
                 b = d*sin(arg_sum)
                 return complex(a,b)
 
-        n = self.p.size 
+        n = self.p.size
         w = 2*pi/(1+n)
 
         xs = [x(w,i) for i in range((n+1)//2+1)]
