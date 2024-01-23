@@ -1,0 +1,9 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+src/poisson_binomial.egg-info/PKG-INFO
+src/poisson_binomial.egg-info/SOURCES.txt
+src/poisson_binomial.egg-info/dependency_links.txt
+src/poisson_binomial.egg-info/requires.txt
+src/poisson_binomial.egg-info/top_level.txt
